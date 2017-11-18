@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TroopersApp</string>
+    <string name="desc_trooper_affiliation">logo daafiliação do trooper</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="confirmation_remove_trooper">Tem certeza que deseja excluir este trooper?</string>
+    <string name="remove_trooper_title">Excluir Trooper</string>
+    <string name="trooper_removed">Trooper excluído</string>
+    <string name="like_trooper">FAVORITAR TROOPER</string>
+    <string name="troopers">Troopers</string>
+</resources>
