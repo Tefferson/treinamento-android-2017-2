@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LoginApplication</string>
+    <string name="prosseguir">prosseguir</string>
+    <string name="tela_inicial">TELA INICIAL</string>
+    <string name="loja_virtual">LOJA VIRTUAL</string>
+    <string name="blog">BLOG</string>
+    <string name="cart_es_renner">CARTÕES RENNER</string>
+    <string name="mais">MAIS</string>
+    <string name="n_o_sou_eu_quero_sair">não sou eu, quero sair</string>
+</resources>
