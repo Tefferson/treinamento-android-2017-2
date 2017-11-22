@@ -8,4 +8,11 @@
     <string name="trooper_removed">Trooper excluído</string>
     <string name="like_trooper">FAVORITAR TROOPER</string>
     <string name="troopers">Troopers</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favoritar">Favoritar</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="next">next</string>
+    <string name="trooper_created">Trooper criado</string>
 </resources>

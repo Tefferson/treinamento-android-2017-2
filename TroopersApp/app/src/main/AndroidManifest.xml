@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TrooperDetailActivity" />
+        <activity android:name=".TrooperInsertActivity"></activity>
     </application>
 
 </manifest>

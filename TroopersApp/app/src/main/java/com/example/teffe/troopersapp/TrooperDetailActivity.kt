@@ -45,13 +45,13 @@ class TrooperDetailActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.trooper_detail_menu, menu)
+        menuInflater.inflate(R.menu.menu_trooper_detail, menu)
         return true;
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when(item?.itemId) {
-            R.id.start_item -> {
+            R.id.item_star -> {
                 Toast.makeText(this, R.string.like_trooper, Toast.LENGTH_SHORT).show()
                 true
             }

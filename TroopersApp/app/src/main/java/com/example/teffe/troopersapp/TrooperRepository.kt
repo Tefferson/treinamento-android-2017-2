@@ -27,14 +27,14 @@ object TrooperRepository {
 
     fun tryGettingFromSharedPreferences(sharedPreferences: SharedPreferences): ArrayList<Trooper> {
 
-        val util = SharedPreferencesUtil(sharedPreferences)
+        SharedPreferencesUtil(sharedPreferences).run {
+            if (hasValue(Constants.TROOPER_LIST)) {
+                val json = get(Constants.TROOPER_LIST)
+                val troopers = Gson()
+                        .fromJson<ArrayList<Trooper>>(json, object : TypeToken<ArrayList<Trooper>>() {
 
-        if (util.hasValue(Constants.TROOPER_LIST)) {
-            val json = util.get(Constants.TROOPER_LIST)
-            val troopers = Gson()
-                    .fromJson<ArrayList<Trooper>>(json, object : TypeToken<ArrayList<Trooper>>() {
-
-                    }.type)
+                        }.type)
+            }
         }
 
         return TROOPERS

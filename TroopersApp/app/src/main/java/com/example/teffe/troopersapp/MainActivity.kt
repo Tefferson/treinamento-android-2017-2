@@ -7,6 +7,8 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.example.teffe.troopersapp.model.Trooper
@@ -71,6 +73,25 @@ class MainActivity : AppCompatActivity(),
                 })
                 .create()
                 .show()
+
+        return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_trooper_add, menu)
+        return true;
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item!!.itemId) {
+            R.id.item_add -> requestTrooperInfo()
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun requestTrooperInfo(): Boolean {
+        val intent = Intent(this, TrooperInsertActivity::class.java)
+        startActivity(intent)
 
         return true
     }
