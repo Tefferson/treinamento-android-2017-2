@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity(),
                 .setTitle(R.string.remove_trooper_title)
                 .setPositiveButton(R.string.yes, { _, _ ->
                     var position = rvTroopers!!.getChildLayoutPosition(view)
+                    db.remove(troopers!!.get(position).id)
                     troopers?.removeAt(position)
                     trooperAdapter?.notifyDataSetChanged()
                     Toast.makeText(this,

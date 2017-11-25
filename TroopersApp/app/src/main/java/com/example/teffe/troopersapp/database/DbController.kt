@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.teffe.troopersapp.model.Affiliation
 import com.example.teffe.troopersapp.model.Trooper
+import java.util.logging.Logger
 
 /**
  * Created by teffe on 24/11/2017.
@@ -68,7 +69,7 @@ class DbController(context: Context) {
         val db = dbCreator.writableDatabase
         val sql = "UPDATE ${DbCreator.tTABLE} " +
                 "SET ${DbCreator.tIS_FAVORITE} = ${if (isFavorite) 1 else 0} " +
-                "WHERE ${DbCreator.tID} = 1"
+                "WHERE ${DbCreator.tID} = $id"
         db.execSQL(sql)
         db.close()
     }
@@ -103,5 +104,13 @@ class DbController(context: Context) {
             db!!.execSQL("DROP TABLE IF EXISTS $tTABLE")
             onCreate(db)
         }
+    }
+
+    fun remove(id: Int) {
+        val db = dbCreator.writableDatabase
+        val sql = "DELETE FROM ${DbCreator.tTABLE} " +
+                "WHERE ${DbCreator.tID} = $id"
+        db.execSQL(sql)
+        db.close()
     }
 }
