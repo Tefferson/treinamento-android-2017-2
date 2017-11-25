@@ -11,8 +11,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import com.example.teffe.troopersapp.database.DbController
 import com.example.teffe.troopersapp.model.Trooper
 import com.example.teffe.troopersapp.util.Constants
+import java.util.logging.Logger
 
 
 /**
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity(),
     private var rvTroopers: RecyclerView? = null
     private var troopers: ArrayList<Trooper>? = null
     private var trooperAdapter: TrooperAdapter? = null
+    private val db = DbController(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +43,7 @@ class MainActivity : AppCompatActivity(),
     private fun setUpRecyclerView() {
         rvTroopers?.layoutManager = LinearLayoutManager(this)
 
-        val sharedPreferences =
-                getSharedPreferences(Constants.TROOPER_PREFS, Context.MODE_PRIVATE)
-
-        troopers = TrooperRepository.tryGettingFromSharedPreferences(sharedPreferences)
+        troopers = db.load()
 
         trooperAdapter = TrooperAdapter(troopers!!, this, this)
 
@@ -56,20 +56,16 @@ class MainActivity : AppCompatActivity(),
                 .setMessage(R.string.confirmation_remove_trooper)
                 .setTitle(R.string.remove_trooper_title)
                 .setPositiveButton(R.string.yes, { _, _ ->
-                    run {
-                        var position = rvTroopers!!.getChildLayoutPosition(view)
-                        troopers?.removeAt(position)
-                        trooperAdapter?.notifyDataSetChanged()
-                        Toast.makeText(this,
-                                R.string.trooper_removed,
-                                Toast.LENGTH_SHORT)
-                                .show()
-                    }
+                    var position = rvTroopers!!.getChildLayoutPosition(view)
+                    troopers?.removeAt(position)
+                    trooperAdapter?.notifyDataSetChanged()
+                    Toast.makeText(this,
+                            R.string.trooper_removed,
+                            Toast.LENGTH_SHORT)
+                            .show()
                 })
                 .setNegativeButton(R.string.no, { dialogInterface, _ ->
-                    run {
-                        dialogInterface.dismiss()
-                    }
+                    dialogInterface.dismiss()
                 })
                 .create()
                 .show()
@@ -102,10 +98,10 @@ class MainActivity : AppCompatActivity(),
         startActivity(intent)
     }
 
-    override fun onStop() {
-        super.onStop()
-        val sharedPreferences = getSharedPreferences(Constants.TROOPER_PREFS, Context.MODE_PRIVATE)
-        TrooperRepository.saveToSharedPreferences(sharedPreferences, troopers!!)
+    override fun onResume() {
+        troopers!!.clear()
+        troopers!!.addAll(db.load())
+        trooperAdapter!!.notifyDataSetChanged()
+        super.onResume()
     }
-
 }

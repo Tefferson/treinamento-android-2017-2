@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.teffe.troopersapp.model.Trooper
 import com.example.teffe.troopersapp.R.string.troopers
+import com.example.teffe.troopersapp.database.DbController
 import com.example.teffe.troopersapp.util.ResourceUtil
 
 

@@ -15,4 +15,13 @@ object ResourceUtil {
             else -> 0
         }
     }
+
+    fun getNameBasedOnAffiliation(affiliation: Affiliation?): Int {
+        return when (affiliation) {
+            Affiliation.FIRST_ORDER -> R.string.first_order
+            Affiliation.GALACTIC_EMPIRE -> R.string.galactic_empire
+            Affiliation.GALACTIC_REPUBLIC -> R.string.galactic_republic
+            else -> 0
+        }
+    }
 }

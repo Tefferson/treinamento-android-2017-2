@@ -15,4 +15,18 @@
     <string name="adicionar">Adicionar</string>
     <string name="next">next</string>
     <string name="trooper_created">Trooper criado</string>
+    <string name="name">name</string>
+    <string name="image_url">image url</string>
+    <string name="description">description</string>
+    <string name="affiliation">affiliation</string>
+    <string name="create">create</string>
+    <string name="first_order">First Order</string>
+    <string name="galactic_empire">Galactic Empire</string>
+    <string name="galactic_republic">Galactic Republic</string>
+    <string name="select_an_affiliation">Select an affiliation.</string>
+    <string name="what_s_his_name">What\'s his name?</string>
+    <string name="tell_me_about_him">Tell me about him...</string>
+    <string name="set_an_image">Set an image.</string>
+    <string name="upload">Upload</string>
+    <string name="desfazer_favoritar">DESFAZER FAVORITAR</string>
 </resources>
